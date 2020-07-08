@@ -25,6 +25,14 @@ body {
   .degree-section {
     display: flex;
     align-items: center;
+    cursor: pointer;
+    span {
+      margin: 10px;
+      font-size: 30px;
+    }
+    h2 {
+      font-size: 40px;
+    }
   }
 }
 
