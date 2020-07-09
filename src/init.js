@@ -37,6 +37,8 @@ const init = (resultFromServer) => {
       break;
   }
 
+  // console.log(resultFromServer);
+
   const weatherDescriptionHeader = document.getElementById('weatherDescriptionHeader');
   const temperatureElement = document.getElementById('temperature');
   const humidityElement = document.getElementById('humidity');
@@ -50,13 +52,14 @@ const init = (resultFromServer) => {
   const resultDescription = resultFromServer.weather[0].description;
   // eslint-disable-next-line max-len
   weatherDescriptionHeader.innerText = resultDescription.charAt(0).toUpperCase() + resultDescription.slice(1);
-  temperatureElement.innerHTML = `${Math.floor(resultFromServer.main.temp) - 273}&deg; C`;
+  temperatureElement.innerHTML = `${Math.floor(resultFromServer.main.temp)}&deg; F`;
   windSpeedElement.innerHTML = `Wind Speed: ${Math.floor(resultFromServer.wind.speed)} meter/s`;
   cityHeader.innerHTML = resultFromServer.name;
   humidityElement.innerHTML = `Humidity levels: ${resultFromServer.main.humidity}%`;
 
-  const celsius = `${Math.floor(resultFromServer.main.temp - 273)}&deg; C`;
-  const fahrenheit = `${Math.floor(((parseFloat(resultFromServer.main.temp - 273)) * 1.8) + 32)}&deg; F`;
+  // eslint-disable-next-line radix
+  const celsius = `${Math.floor(parseInt(resultFromServer.main.temp - 32) * (5 / 9))}&deg; C`;
+  const fahrenheit = `${Math.floor(resultFromServer.main.temp)}&deg; F`;
   buttonSwitch.addEventListener('click', (event) => {
     if ((event.target.classList.contains('fahrenheit'))) {
       temperatureElement.innerHTML = fahrenheit;
