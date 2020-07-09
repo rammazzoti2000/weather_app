@@ -38,11 +38,13 @@ const init = (resultFromServer) => {
   }
 
   const weatherDescriptionHeader = document.getElementById('weatherDescriptionHeader');
+
   const temperatureElement = document.getElementById('temperature');
+
   const humidityElement = document.getElementById('humidity');
   const windSpeedElement = document.getElementById('windSpeed');
   const cityHeader = document.getElementById('cityHeader');
-  const buttonSwitch = document.querySelector('.toggle');
+
 
   const weatherIcon = document.getElementById('documentIconImg');
   weatherIcon.src = `http://openweathermap.org/img/w/${resultFromServer.weather[0].icon}.png`;
@@ -54,17 +56,6 @@ const init = (resultFromServer) => {
   windSpeedElement.innerHTML = `Wind Speed: ${Math.floor(resultFromServer.wind.speed)} meter/s`;
   cityHeader.innerHTML = resultFromServer.name;
   humidityElement.innerHTML = `Humidity levels: ${resultFromServer.main.humidity}%`;
-
-  // eslint-disable-next-line radix
-  const celsius = `${Math.floor(parseInt(resultFromServer.main.temp - 32) * (5 / 9))}&deg; C`;
-  const fahrenheit = `${Math.floor(resultFromServer.main.temp)}&deg; F`;
-  buttonSwitch.addEventListener('click', (event) => {
-    if ((event.target.classList.contains('fahrenheit'))) {
-      temperatureElement.innerHTML = fahrenheit;
-    } else {
-      temperatureElement.innerHTML = celsius;
-    }
-  });
 
   setPositionForWeatherInfo();
 };
