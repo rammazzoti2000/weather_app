@@ -55,12 +55,12 @@ const init = (resultFromServer) => {
   humidityElement.innerHTML = `Humidity levels: ${resultFromServer.main.humidity}%`;
 
   const celsius = `${Math.floor(resultFromServer.main.temp)}C`;
-  const farenheight = `${Math.floor(((parseFloat(resultFromServer.main.temp)) * 1.8) + 32)}F`;
+  const fahrenheit = `${Math.floor(((parseFloat(resultFromServer.main.temp)) * 1.8) + 32)}F`;
   temperatureElement.addEventListener('click', () => {
-    if (temperatureElement.innerText === farenheight) {
+    if (temperatureElement.innerText === fahrenheit) {
       temperatureElement.innerHTML = celsius;
     } else {
-      temperatureElement.innerHTML = farenheight;
+      temperatureElement.innerHTML = fahrenheit;
     }
   });
 
