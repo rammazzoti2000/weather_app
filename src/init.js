@@ -42,6 +42,7 @@ const init = (resultFromServer) => {
   const humidityElement = document.getElementById('humidity');
   const windSpeedElement = document.getElementById('windSpeed');
   const cityHeader = document.getElementById('cityHeader');
+  const buttonSwitch = document.querySelector('.toggle');
 
   const weatherIcon = document.getElementById('documentIconImg');
   weatherIcon.src = `http://openweathermap.org/img/w/${resultFromServer.weather[0].icon}.png`;
@@ -49,18 +50,18 @@ const init = (resultFromServer) => {
   const resultDescription = resultFromServer.weather[0].description;
   // eslint-disable-next-line max-len
   weatherDescriptionHeader.innerText = resultDescription.charAt(0).toUpperCase() + resultDescription.slice(1);
-  temperatureElement.innerHTML = `${Math.floor(resultFromServer.main.temp)}C`;
+  temperatureElement.innerHTML = `${Math.floor(resultFromServer.main.temp) - 273}&deg; C`;
   windSpeedElement.innerHTML = `Wind Speed: ${Math.floor(resultFromServer.wind.speed)} meter/s`;
   cityHeader.innerHTML = resultFromServer.name;
   humidityElement.innerHTML = `Humidity levels: ${resultFromServer.main.humidity}%`;
 
-  const celsius = `${Math.floor(resultFromServer.main.temp)}C`;
-  const fahrenheit = `${Math.floor(((parseFloat(resultFromServer.main.temp)) * 1.8) + 32)}F`;
-  temperatureElement.addEventListener('click', () => {
-    if (temperatureElement.innerText === fahrenheit) {
-      temperatureElement.innerHTML = celsius;
-    } else {
+  const celsius = `${Math.floor(resultFromServer.main.temp - 273)}&deg; C`;
+  const fahrenheit = `${Math.floor(((parseFloat(resultFromServer.main.temp - 273)) * 1.8) + 32)}&deg; F`;
+  buttonSwitch.addEventListener('click', (event) => {
+    if ((event.target.classList.contains('fahrenheit'))) {
       temperatureElement.innerHTML = fahrenheit;
+    } else {
+      temperatureElement.innerHTML = celsius;
     }
   });
 
