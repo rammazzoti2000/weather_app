@@ -97,7 +97,7 @@ To have this app on your pc, you need to:
 
 ## Live Demo
 
-[Live Demo](https://raw.githack.com/rammazzoti2000/weather_app/feature/readme_instructions/dist/index.html) :point_left:
+[Live Demo](https://raw.githack.com/rammazzoti2000/weather_app/feature/readme/dist/index.html) :point_left:
 
 <!-- CONTACT -->
 ## Contributors
