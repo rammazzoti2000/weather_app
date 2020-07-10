@@ -37,6 +37,8 @@ const init = (resultFromServer) => {
       break;
   }
 
+  console.log(resultFromServer);
+
   const weatherDescriptionHeader = document.getElementById('weatherDescriptionHeader');
 
   const temperatureElement = document.getElementById('temperature');
@@ -52,7 +54,7 @@ const init = (resultFromServer) => {
   const resultDescription = resultFromServer.weather[0].description;
   // eslint-disable-next-line max-len
   weatherDescriptionHeader.innerText = resultDescription.charAt(0).toUpperCase() + resultDescription.slice(1);
-  temperatureElement.innerHTML = `${Math.floor(resultFromServer.main.temp)}&deg; F`;
+  temperatureElement.innerHTML = `${Math.floor(resultFromServer.main.temp)}&deg;`;
   windSpeedElement.innerHTML = `Wind Speed: ${Math.floor(resultFromServer.wind.speed)} meter/s`;
   cityHeader.innerHTML = resultFromServer.name;
   humidityElement.innerHTML = `Humidity levels: ${resultFromServer.main.humidity}%`;
