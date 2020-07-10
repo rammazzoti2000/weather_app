@@ -37,8 +37,6 @@ const init = (resultFromServer) => {
       break;
   }
 
-  console.log(resultFromServer);
-
   const weatherDescriptionHeader = document.getElementById('weatherDescriptionHeader');
 
   const temperatureElement = document.getElementById('temperature');
