@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Weather App</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"
+    />
+  </head>
+  <body>
+    <div id="searchContainer">
+      <input class="searchControl" type="text" placeholder="Please Enter City Name" id="searchInput">
+      <button class="searchControl" id="searchBtn">Go!</button>
+      <div class="toggle">
+        <button type="button" class="celsius button">Celsius</button>
+        <button type="button" class="fahrenheit button">Fahrenheit</button>
+      </div>
+    </div>
+    <div id="weatherContainer">
+      <div id="weatherDescription">
+        <h1 id="cityHeader"></h1>
+        <div id="weatherMain">
+          <div id="temperature"></div>
+          <div class="overcast">
+            <div id="weatherDescriptionHeader"></div>
+            <div class="icon"><img id="documentIconImg"></div>
+          </div>
+        </div>
+        <hr>
+        <div id="windSpeed" class="bottom-details"></div>
+        <div id="humidity" class="bottom-details"></div>
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
